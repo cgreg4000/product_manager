@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ProductForm = () =>{
+const ProductForm = (props) =>{
 
     let [title, setTitle] = useState("")
     let [price, setPrice] = useState(undefined)
@@ -15,6 +15,7 @@ const ProductForm = () =>{
             .then((response) => {
                 console.log("success")
                 console.log(response)
+                props.setFormSubmitted(!props.formSubmitted)
             })
             .catch((err) => {
                 console.log("there was an error")
@@ -23,15 +24,26 @@ const ProductForm = () =>{
     }
 
     return(
-        <form action="" onSubmit={submitHandler}>
-            <label htmlFor="">Title</label>
-            <input type="text" onChange={ (e) => setTitle(e.target.value)}/>
-            <label htmlFor="">Price</label>
-            <input type="number" onChange={ (e) => setPrice(e.target.value)}/>
-            <label htmlFor="">Description</label>
-            <input type="text" onChange={ (e) => setDescription(e.target.value)}/>
-            <input type="submit" value="Create"/>
-        </form>
+        <>
+            <h2>Product Manager</h2>
+            <form action="" onSubmit={submitHandler}>
+                <div>
+                    <label htmlFor="">Title</label>
+                    <input type="text" onChange={ (e) => setTitle(e.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor="">Price</label>
+                    <input type="number" onChange={ (e) => setPrice(e.target.value)}/>
+                </div>
+                <div>
+                    <label htmlFor="">Description</label>
+                    <input type="text" onChange={ (e) => setDescription(e.target.value)}/>
+                </div>
+                
+                <input type="submit" value="Create"/>
+            </form>
+        </>
+        
     );
 }
 
