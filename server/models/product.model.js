@@ -13,8 +13,8 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: [true, "Description is required."]
     }
-    },
-    { timestamps: true}
+},
+    { timestamps: true }
 );
 
 const Product = mongoose.model('Product', ProductSchema);

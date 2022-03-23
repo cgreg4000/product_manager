@@ -10,5 +10,5 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 
 const AllProductRoutes = require('./server/routes/product.routes');
 AllProductRoutes(app);
-    
-app.listen(port, () => console.log(`Listening on port: ${port}`) );
+
+app.listen(port, () => console.log(`Listening on port: ${port}`));

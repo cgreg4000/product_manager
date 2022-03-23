@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ProductForm = (props) =>{
+const ProductForm = (props) => {
 
     let [title, setTitle] = useState("")
     let [price, setPrice] = useState(undefined)
@@ -9,7 +9,7 @@ const ProductForm = (props) =>{
 
     const submitHandler = (e) => {
         e.preventDefault();
-        let productFormData = {title, price, description}
+        let productFormData = { title, price, description }
         console.log(productFormData)
         axios.post("http://localhost:8000/api/products/new", productFormData)
             .then((response) => {
@@ -23,27 +23,25 @@ const ProductForm = (props) =>{
             })
     }
 
-    return(
+    return (
         <>
             <h2>Product Manager</h2>
-            <form action="" onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}>
                 <div>
-                    <label htmlFor="">Title</label>
-                    <input type="text" onChange={ (e) => setTitle(e.target.value)}/>
+                    <label>Title</label>
+                    <input className='form-control mb-2' type="text" onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="">Price</label>
-                    <input type="number" onChange={ (e) => setPrice(e.target.value)}/>
+                    <label>Price</label>
+                    <input className='form-control mb-2' type="number" onChange={(e) => setPrice(e.target.value)} />
                 </div>
                 <div>
-                    <label htmlFor="">Description</label>
-                    <input type="text" onChange={ (e) => setDescription(e.target.value)}/>
+                    <label>Description</label>
+                    <input className='form-control mb-3' type="text" onChange={(e) => setDescription(e.target.value)} />
                 </div>
-                
-                <input type="submit" value="Create"/>
+                <input className='btn btn-secondary' type="submit" value="Create" />
             </form>
         </>
-        
     );
 }
 

@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  width: 70%;
+}
+
+form {
+  background-color: #f6f6f6;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.link-color {
+  color: black;
+}
